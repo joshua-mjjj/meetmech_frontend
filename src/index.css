@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a{
+  cursor: pointer;
+}
+
+input:focus{
+  outline: none;
+}
+
+.container{
+  background-color: #FAFAFA;
+}
+
+.search-list{
+  padding: 0 0 0.5rem 0!important;
+}
+
+.location{
+  margin-top: 4px;
+  line-height: 2;
+}
+
+.suggestions{
+  position: absolute;
+  z-index: 1000;
+  margin-left: -5px;
+  border: 1px solid #dfe1e5;
+  border-top-color: transparent;
+  border-radius: 15px;
+  margin-top: 17px;
+  max-width: 37rem;
+  width: 100%;
+  padding: 4px;
+  background-color: white;
+}
+
+.suggestions .MuiListItemText-inset {
+  padding-left: 10px;
+}
+
+.suggestions .MuiListItem-button {
+  padding: 2px 4px;
+}
+
+.MuiInputBase-input{
+  height: 1rem!important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.MuiInputBase-inputMultiline{
+  height: auto!important;
+}
+
+.facebook-button-class{
+  width: 100%;
+  height: 2.5rem;
+  background-color: #4c69ba;
+  border: 1px solid transparent;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.AppointmentFormContainer-content{
+  width: max-content;
+}
+
+.MuiStepIcon-root.MuiStepIcon-active, .MuiStepIcon-root.MuiStepIcon-completed, .MuiStepLabel-label.MuiStepLabel-active, .MuiStepLabel-label.MuiStepLabel-completed{
+  color: #663399!important;
+}
+
+.MuiButton-root {
+  text-transform: capitalize!important;
+  font-weight: bold!important;
+}
+
+.MuiStepIcon-root, .MuiStepLabel-label{
+  color: rgb(182 184 185)!important;
+}
+
+.MuiStepConnector-lineHorizontal{
+  border-color: rgb(182 184 185)!important;
+}
+
+.MuiButton-contained.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26)!important;
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.12)!important;
+}
+
+.MuiInput-underline:hover:not(.Mui-disabled):before{
+  border-bottom: 0px solid rgba(0, 0, 0, 0.42)!important;
+}
+
+.MuiFormLabel-root.Mui-focused{
+  color: #663399!important;
+}
+
+.MuiAccordion-root, .MuiAccordionSummary-root{
+  border-radius: 5px!important;
+}
+
+/* .MuiAccordion-root.Mui-expanded:last-child{
+  border: 1px solid rgba(0, 0, 0, .125)!important;
+} */
+
+.MuiTypography-body1 {
+  font-size: 13px!important;
+}
+
+.MuiAccordion-root{
+  border: none!important;
+}
+
+.MuiAccordionSummary-root{
+  min-height: 36px!important;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .suggestions{
+    margin-top: 17px;
+    max-width: 90vmax;
+    width: auto;
+    margin-left: -40px;
+    padding: 1px;
+    border-top-color: #dfe1e5;
+    margin-top: 20px;
+  }
+  .suggestions .MuiListItemText-primary{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 90vmax;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  
+}
