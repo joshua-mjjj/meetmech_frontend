@@ -9,6 +9,9 @@ export const REGISTER_SUCCESS    = "REGISTER_SUCCESS";
 export const CREATE_PROFILE      = "CREATE_PROFILE";
 export const GET_PROFILES        = "GET_PROFILES";
 export const UPLOADED            = "UPLOADED";
+export const RESULTS_FETCHED     = "RESULTS_FETCHED";
+export const RESULTS_NULL        = "RESULTS_NULL";
+export const GET_DETAILS         = "GET_DETAILS";
 
 
 

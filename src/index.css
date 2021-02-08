@@ -41,12 +41,14 @@ input:focus{
   border: 1px solid #dfe1e5;
   border-top-color: transparent;
   border-radius: 15px;
-  margin-top: 17px;
-  max-width: 37rem;
+  margin-top: 10px;
+  max-width: 25rem;
   width: 100%;
   padding: 4px;
   background-color: white;
 }
+
+
 
 .suggestions .MuiListItemText-inset {
   padding-left: 10px;
@@ -132,6 +134,32 @@ input:focus{
   min-height: 36px!important;
 }
 
+.suggestions2{
+  position: absolute;
+  z-index: 1000;
+  margin-left: 805px;
+  border: 1px solid #dfe1e5;
+  border-top-color: transparent;
+  border-radius: 15px;
+  max-width: 6rem;
+  width: 100%;
+  padding: 4px;
+  background-color: white;
+}
+
+.suggestions3{
+  position: absolute;
+  z-index: 1000;
+  margin-left: 505px;
+  border: 1px solid #dfe1e5;
+  border-top-color: transparent;
+  border-radius: 15px;
+  max-width: 6rem;
+  width: 100%;
+  padding: 4px;
+  background-color: white;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .suggestions{
@@ -144,6 +172,20 @@ input:focus{
     margin-top: 20px;
   }
   .suggestions .MuiListItemText-primary{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 90vmax;
+  }
+  .suggestions2{
+    margin-top: 1px;
+    max-width: 40vmax;
+    width: auto;
+    margin-left: 335px;
+    padding: 1px;
+    border-top-color: #dfe1e5;
+  }
+  .suggestions2 .MuiListItemText-primary{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

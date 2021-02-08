@@ -11,7 +11,9 @@ import AuthenticationRoute from "./views/AuthenticationRoute.js";
 import HomePage                from "./views/HomePage.js";
 import LoginPage               from "./views/LoginPage";
 import SignUpPage              from "./views/SignUpPage"
-import AuthDashboardContainer  from "./views/AuthDashboardContainer";
+import ResultsPage                from "./views/ResultsPage"
+import AuthDashboardContainer     from "./views/AuthDashboardContainer";
+import SingleServiceProviderView  from "./views/SingleServiceProviderView";
 var hist = createBrowserHistory();
 
 class App extends Component {
@@ -33,6 +35,11 @@ class App extends Component {
                 path="/dashboard"
                 component={AuthDashboardContainer}
               />
+               <Route
+                path="/provider_view/:provider_id"
+                component={SingleServiceProviderView}
+              />
+              <Route path="/search" component={ResultsPage} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />
               <Route exact path="/" component={HomePage} />

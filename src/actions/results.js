@@ -1,11 +1,11 @@
 import axios from "axios";
-import {  GET_SUGGESTIONS  } from "./types";
+import {  GET_SUGGESTIONS, RESULTS_FETCHED, RESULTS_NULL, GET_DETAILS  } from "./types";
 
 // GET AUTO COMPLETE SUGGESTIONS
 export const getsuggestions = () => dispatch => {
 
-	axios                                                              // API endpoint 
-	.get('https://meetmech-api.herokuapp.com/api/v1/autocomplete/')   // use either of the 2 to fetch data
+	axios                                                              
+	.get('https://meetmech-api.herokuapp.com/api/v1/autocomplete/')   // API endpoint 
 	.then(res => {
 		// console.log(res.data.suggestions)
 		dispatch({
@@ -21,3 +21,63 @@ export const getsuggestions = () => dispatch => {
 		}
 	});
 }
+
+// GET SEARCH ENGINE RESULTS
+export const getresults = (service, Location) => dispatch => {
+	console.log("getting results...")
+     // Headers
+	  const config = {
+	    headers: {
+	      "Content-Type": "application/json",
+	    },
+	  };
+
+    // Request Body
+	  const body = JSON.stringify({
+	    service,
+	    Location
+	  });
+  	 // console.log(body)
+
+	axios                                                              
+	.post('https://meetmech-api.herokuapp.com/api/v1/user_request/', body, config)  // API endpoint  
+	.then(res => {
+		console.log(res.data.length)
+		if(res.data.length === 0){
+			dispatch({ 
+				type: RESULTS_NULL
+			});
+		}
+		dispatch({
+			type: RESULTS_FETCHED,
+			payload: res.data
+		});
+	})
+	.catch(err => {
+		if(err){
+			console.log(err)
+		}else {
+			console.log("An internal error occured!")
+		}
+	});
+}
+
+// GET SINGLE PROVIDER DETAILS
+export const getdetails = (id) => dispatch => {
+	axios
+	.get(`https://meetmech-api.herokuapp.com/api/v1/profiles_get/${id}/`) // API endpoint
+	.then(res => {
+		dispatch({
+			type: GET_DETAILS,
+			payload: res.data
+		});
+	})
+	.catch(err => {
+		if(err){
+			console.log(err)
+		}else {
+			console.log("An internal error occured!")
+		}
+	});
+}
+
