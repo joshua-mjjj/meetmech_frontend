@@ -335,6 +335,7 @@ function BioSection(props) {
                           <MenuItem value="tyres">Wheel Alignment</MenuItem>
                           <MenuItem value="electric">Electric Cars</MenuItem>
                           <MenuItem value="engine">Engine Checking</MenuItem>
+                          <MenuItem value="balancing">Wheel Balancing</MenuItem>
                       </Select> 
                     </Grid>
                      <Grid item xs={12} sm={6}>

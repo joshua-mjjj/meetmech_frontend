@@ -121,6 +121,18 @@ export default function CustomizedInputBase(props) {
                   <ListItem button >
                     <ListItemText  name='kakiri' primary="Kakiri" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
                   </ListItem>
+                   <ListItem button >
+                    <ListItemText  name='Nsambya' primary="Nsambya" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
+                  </ListItem>
+                   <ListItem button >
+                    <ListItemText  name='Entebbe' primary="Entebbe" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
+                  </ListItem>
+                    <ListItem button >
+                    <ListItemText  name='Munyonyo' primary="Munyonyo" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
+                  </ListItem>
+                    <ListItem button >
+                    <ListItemText  name='Wandegeya' primary="Wandegeya" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
+                  </ListItem>
                 </List>
              </div>
             ) : ("")
