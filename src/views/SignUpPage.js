@@ -141,10 +141,10 @@ function SignUpPage(props) {
     } else setError_passwordNotMatch(false);
 
 
-    console.log(username);
-    console.log(password);
-    console.log(password2);
-    console.log(email);
+    // console.log(username);
+    // console.log(password);
+    // console.log(password2);
+    // console.log(email);
     props.register(username,email,password);
 
   }

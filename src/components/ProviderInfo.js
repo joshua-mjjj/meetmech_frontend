@@ -11,6 +11,9 @@ import Rating from '@material-ui/lab/Rating';
 import { Box, Paper } from '@material-ui/core';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import EmailIcon from '@material-ui/icons/Email'; 
+import WbCloudyIcon from '@material-ui/icons/WbCloudy';
+import CloudOffIcon from '@material-ui/icons/CloudOff';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -47,11 +50,25 @@ const useStyles = makeStyles((theme) => ({
   inline:{
     width: '100%'
   },
+  cloud: {
+    fontSize: '23px',
+    marginLeft: '10px',
+    marginTop: '4px',
+    color: 'green',
+  },
 }));
 
 export default function PetProviderBio(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [status, setStatus] = React.useState("");
+
+   React.useEffect(() => {
+    if(props.status){
+      setStatus(props.status[0].status)
+      console.log(status)
+    }        
+   }, [props.status]);
 
   return (
       <Paper m={2} p={3} className={classes.listBox} elevation={1}>
@@ -73,6 +90,16 @@ export default function PetProviderBio(props) {
                               m={0.5}
                           >
                               {props.name}
+                              {
+                                status === "online" ? 
+                                ( <span ><WbCloudyIcon className={classes.cloud}/></span> ) : 
+                                ("")
+                              } 
+                              {
+                                status === "offline" ? 
+                                ( <span ><CloudOffIcon className={classes.cloud}/></span>  ) : 
+                                ("")
+                              } 
                           </Typography>                   
                       </React.Fragment>
                   }

@@ -42,7 +42,6 @@ export const getresults = (service, Location) => dispatch => {
 	axios                                                              
 	.post('https://meetmech-api.herokuapp.com/api/v1/user_request/', body, config)  // API endpoint  
 	.then(res => {
-		console.log(res.data.length)
 		if(res.data.length === 0){
 			dispatch({ 
 				type: RESULTS_NULL

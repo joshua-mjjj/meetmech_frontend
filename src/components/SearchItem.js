@@ -11,6 +11,9 @@ import List from '@material-ui/core/List';
 import Chip from '@material-ui/core/Chip';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
+import WbCloudyIcon from '@material-ui/icons/WbCloudy';
+import CloudOffIcon from '@material-ui/icons/CloudOff';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -61,6 +64,12 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '0',
     paddingBottom: '0',
   },
+  cloud: {
+    fontSize: '23px',
+    marginLeft: '10px',
+    marginTop: '4px',
+    color: 'green',
+  },
 }));
 
 export default function AlignItemsList(props) {
@@ -68,6 +77,7 @@ export default function AlignItemsList(props) {
 
   const openProvider = (e) => {
    window.location.href = `/provider_view/${props.id}`;
+   // {props.status}
   }
   return (
       <List component="nav" 
@@ -90,7 +100,12 @@ export default function AlignItemsList(props) {
                         m={0.5}
                     >
                         {props.name}
-                    </Typography>                   
+                    </Typography> 
+                    {
+                      props.status === "online" ? 
+                      ( <span ><WbCloudyIcon className={classes.cloud}/></span> ) : 
+                      ( <span ><CloudOffIcon className={classes.cloud}/></span> )
+                    }
                 </React.Fragment>
             }
             secondary={

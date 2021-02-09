@@ -44,6 +44,7 @@ class SinglePetServiceProvider extends React.Component{
                     <ProviderInfo 
                         name={this.props.details.name} 
                         image={this.props.details.photo} 
+                        status={this.props.details.status}
                         // rating={this.props.petproviderdetails.rating}
                         location={this.props.details.location}
                         description={this.props.details.other}

@@ -91,8 +91,8 @@ function SignIn(props) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(username);
-    console.log(password);
+    // console.log(username);
+    // console.log(password);
     if(username && password){
       props.login(username, password);
     }

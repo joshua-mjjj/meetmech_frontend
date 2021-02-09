@@ -34,7 +34,7 @@ export const loadUser = () => (dispatch, getState) => {
 };
 
 // LOGIN SERVICE PROVIDER 
-export const login = (username, password) => (dispatch) => {
+export const login = (username, password) => (dispatch, getState) => {
   // Loading
   dispatch({ type: LOADING });
 
@@ -50,7 +50,7 @@ export const login = (username, password) => (dispatch) => {
     username,
     password
   });
-  console.log(body)
+  // console.log(body)
 
   axios
     .post("https://meetmech-api.herokuapp.com/api/v1/auth/login", body, config)
@@ -61,6 +61,56 @@ export const login = (username, password) => (dispatch) => {
         type: LOGIN_SUCCESS,
         payload: res.data,
       });
+
+      const get_id = localStorage.getItem("status_id")
+      if(get_id){
+       // console.log(get_id)
+        console.log('patching status...')
+        const status = "online"
+        const body_ = JSON.stringify({
+          status,
+        });
+       // console.log(body_)
+
+        axios
+          .patch(`https://meetmech-api.herokuapp.com/api/v1/user_status/${get_id}/`, body_, tokenConfig(getState))
+          .then((res) => {
+            // console.log(res.data)
+          })
+          .catch((err) => {
+            if(err){
+              console.log(err)
+            }
+          });
+        }else {
+          console.log('no id')
+        }
+
+      // // UPDATING STATUS 
+      // if(res.data){
+      //   const status = "online"
+      //   const owner_username = res.data.user.username
+      //   const user = res.data.user.id
+
+      //   const body_ = JSON.stringify({
+      //     status,
+      //     owner_username,
+      //     user
+      //   });
+      //   console.log(body_)
+
+      //   axios
+      //     .post("https://meetmech-api.herokuapp.com/api/v1/user_status/", body_, tokenConfig(getState))
+      //     .then((res) => {
+      //       console.log(res.data)
+      //     })
+      //     .catch((err) => {
+      //       if(err){
+      //         console.log(err)
+      //       }
+      //     });
+      // }
+
     })
     .catch((err) => {
     	if(err){
@@ -167,7 +217,7 @@ export const sendUserPhoto = (data, id) => async (dispatch, getState) => {
 
 
 // REGISTER SERVICE PROVIDER 
-export const register = (username, email, password) => (dispatch) => {
+export const register = (username, email, password) => (dispatch, getState) => {
   // Loading
   dispatch({ type: LOADING });
 
@@ -184,17 +234,44 @@ export const register = (username, email, password) => (dispatch) => {
     email,
     password
   });
-   console.log(body)
+   // console.log(body)
 
   axios
     .post("https://meetmech-api.herokuapp.com/api/v1/auth/register", body, config)
     .then((res) => {
       console.log("Registered...");
-      // console.log(res.data)
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,
       });
+
+      //  CREATING STATUS INSTANCE
+      if(res.data){
+        const status = "online"
+        const owner_username = res.data.user.username
+        const user = res.data.user.id
+
+        const body_ = JSON.stringify({
+          status,
+          owner_username,
+          user
+        });
+        // console.log(body_)
+
+        axios
+          .post("https://meetmech-api.herokuapp.com/api/v1/user_status/", body_, tokenConfig(getState))
+          .then((res) => {
+            const ID = res.data.id;
+            localStorage.setItem("status_id", ID);
+            console.log('status instance created...')
+          })
+          .catch((err) => {
+            if(err){
+              console.log(err)
+            }
+          });
+        }
+      
     })
     .catch((err) => {
     	if(err){
@@ -206,11 +283,35 @@ export const register = (username, email, password) => (dispatch) => {
     });
 };
 
+
+
 //  LOGOUT USERS
 export const logout = () => (dispatch, getState) => {
-  dispatch({
-    type: LOGOUT_SUCCESS,
-  });
+
+      const get_id = localStorage.getItem("status_id")
+      if(get_id){
+       // console.log(get_id)
+        const status = "offline"
+        const body_ = JSON.stringify({
+          status,
+        });
+        // console.log(body_)
+
+        axios
+          .patch(`https://meetmech-api.herokuapp.com/api/v1/user_status/${get_id}/`, body_, tokenConfig(getState))
+          .then((res) => {
+            // console.log(res.data)
+            console.log('patching status to offline...')
+          })
+          .catch((err) => {
+            if(err){
+              console.log(err)
+            }
+          });
+        }else {
+          console.log('no id')
+        }
+
   axios
     .post('https://meetmech-api.herokuapp.com/api/v1/auth/logout', null, tokenConfig(getState))
     .then(res => {

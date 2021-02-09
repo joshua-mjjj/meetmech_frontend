@@ -162,7 +162,7 @@ function ResultsPage(props) {
 				
 					<List className="search-list">
 						{props.results && props.results.map((result, idx) => 
-							<AlignItemsList searchInput={searchInput} key={result.id} id={result.id}  description={result.other} service={result.service} location={result.location} name={result.name} contact={result.contact} photo={result.photo}/>
+							<AlignItemsList searchInput={searchInput} key={result.id} id={result.id} status={result.status[0].status} description={result.other} service={result.service} location={result.location} name={result.name} contact={result.contact} photo={result.photo}/>
 						)}
 					</List>
 					
