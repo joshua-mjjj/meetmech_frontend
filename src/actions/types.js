@@ -12,6 +12,7 @@ export const UPLOADED            = "UPLOADED";
 export const RESULTS_FETCHED     = "RESULTS_FETCHED";
 export const RESULTS_NULL        = "RESULTS_NULL";
 export const GET_DETAILS         = "GET_DETAILS";
+export const SET_TAB             = "SET_TAB";
 
 
 

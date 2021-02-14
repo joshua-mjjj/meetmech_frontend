@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import ImageAvatars from './LogoSearchPage';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,6 +56,10 @@ export default function GuestNavBar() {
     window.location.href = '/signup'
   }
 
+   const redirect = (e) => {
+    window.location.href = "/about";
+  }
+
 
   return (
     <div className={classes.root}>
@@ -62,7 +67,7 @@ export default function GuestNavBar() {
         <Toolbar>
           <ImageAvatars />
           <Typography variant="h6" className={classes.title}></Typography>
-
+            <Button onClick={redirect} color="primary">About</Button>
             <Chip onClick={redirect_login} label="Sign in" variant="outlined" className={classes.login}/>
             <Chip onClick={redirect_signup} label="Sign Up" variant="outlined" className={classes.login}/>
           </Toolbar>

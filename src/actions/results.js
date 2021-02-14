@@ -1,5 +1,14 @@
 import axios from "axios";
-import {  GET_SUGGESTIONS, RESULTS_FETCHED, RESULTS_NULL, GET_DETAILS  } from "./types";
+import {  GET_SUGGESTIONS, RESULTS_FETCHED, RESULTS_NULL, GET_DETAILS, SET_TAB  } from "./types";
+
+// SET TAB 
+export const set_tab = (tab) => dispatch => {
+	console.log(tab)
+	dispatch({
+			type: SET_TAB,
+			payload: tab
+		});
+}
 
 // GET AUTO COMPLETE SUGGESTIONS
 export const getsuggestions = () => dispatch => {

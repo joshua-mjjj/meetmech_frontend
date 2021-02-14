@@ -11,6 +11,7 @@ import CustomizedInputBase from "../components/SearchBarSearchPage"
 import CustomizedTabs      from "../components/SearchFilterTabHost"
 import ImageAvatars        from "../components/LogoSearchPage.js"
 import Share               from '../components/Share.js';
+import GoogleMap           from "./Map.js";
 
 import Container           from '@material-ui/core/Container'
 import List      from '@material-ui/core/List';
@@ -82,7 +83,7 @@ function ResultsPage(props) {
 			props.getresults(props.location.state.service, props.location.state.location);
 		}	   
   }, []);
- 
+
  	const searchInput = props.location.state.service
 		if(props.results_null === true){
 			return (
@@ -110,7 +111,7 @@ function ResultsPage(props) {
 						search={props.location.state.service} 
 						auto_complete={props.autocompletes}
 					/>
-					<CustomizedTabs />
+					<CustomizedTabs  />
 				</Paper>
 				 <div className={classes.root}>
 				  {`Your search for `} <b>{props.location.state.service}</b>{` in `}<b>{props.location.state.location}</b>{` did not match any motor service providers we currently have on the meetmech.`}
@@ -131,6 +132,46 @@ function ResultsPage(props) {
 		</Fragment>
 	)
   }
+
+          if(props.tab === "location"){
+			return (
+		   <Fragment>
+			<div>
+	          	{
+	           	props.auth.isAuthenticated ? 
+	           	( <AuthorizedUserHomepageNavbar />) 
+	           	 :
+	           	('')
+	           }
+	          </div>
+	           <div>
+	          	{
+	           	!(props.auth.token) ? 
+	           	(  <GuestNavBar />) 
+	           	 :
+	           	('')
+	           }
+	          </div>
+			<Container className="container"  disableGutters="true">
+				<Paper className="search-section" elevation={0}>
+					<ImageAvatars />
+					<CustomizedInputBase 
+						search={props.location.state.service} 
+						auto_complete={props.autocompletes}
+					/>
+					<CustomizedTabs  />
+				</Paper>
+				  <GoogleMap  
+		            google={props.google}
+		            center={{lat: "0.3435654", lng: "32.356533" }}
+		            height='500px'
+		            zoom={9}
+		            />
+	      </Container>
+		</Fragment>
+	)
+  } 
+
 	  return (
 		<Fragment>
 			<div>
@@ -174,6 +215,7 @@ function ResultsPage(props) {
 const mapStateToProps = state => ({
 	auth: state.auth,
 	results: state.results.results,
+	tab:  state.results.tab,
 	results_null: state.results.results_null,
 	// query: state.results.query,
 	autocompletes: state.results.autocompletes,

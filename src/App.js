@@ -14,6 +14,7 @@ import SignUpPage              from "./views/SignUpPage"
 import ResultsPage                from "./views/ResultsPage"
 import AuthDashboardContainer     from "./views/AuthDashboardContainer";
 import SingleServiceProviderView  from "./views/SingleServiceProviderView";
+import About                      from "./views/About";
 var hist = createBrowserHistory();
 
 class App extends Component {
@@ -42,6 +43,7 @@ class App extends Component {
               <Route path="/search" component={ResultsPage} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />
+              <Route path="/about" component={About} />
               <Route exact path="/" component={HomePage} />
             </Switch>
           </Fragment>

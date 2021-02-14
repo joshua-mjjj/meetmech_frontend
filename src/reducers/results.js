@@ -2,14 +2,17 @@ import {
   GET_SUGGESTIONS, 
   RESULTS_FETCHED,
   RESULTS_NULL,
-  GET_DETAILS
+  GET_DETAILS,
+  SET_TAB
+
  } from "../actions/types";
 
 const initialState = {
 	autocompletes: {},
 	results: [],
 	results_null: false,
-	details: []
+	details: [],
+	tab: "all"
 }
 
 export default function(state=initialState, action) {
@@ -18,6 +21,11 @@ export default function(state=initialState, action) {
 			return {
 				...state,
 				autocompletes: action.payload
+			}
+		case SET_TAB:
+			return {
+				...state,
+				tab: action.payload
 			}
 		case GET_DETAILS:
 			return {

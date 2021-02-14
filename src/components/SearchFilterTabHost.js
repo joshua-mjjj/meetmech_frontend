@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-
+import { set_tab } from '../actions/results';
 
 const AntTabs = withStyles({
   root: {
@@ -39,23 +40,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchTabs() {
+function SearchTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const all = "all";
+  const location = "location"
+
+  const set_all = (e) => {
+    props.set_tab(all);
+  };
+  const set_map = (e) => {
+    props.set_tab(location);
+  };
 
   return (
     <div className={classes.root}>
       <div className={classes.demo1}>
         <AntTabs value={value} onChange={handleChange} aria-label="ant example">
-          <AntTab label="All" />
-          <AntTab label="Locations" disabled />
+          <AntTab label="All" onClick={set_all} />
+          <AntTab label="Locations" onClick={set_map} />
           <AntTab label="Images" disabled />
         </AntTabs>
       </div>
     </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { set_tab })(SearchTabs);
+
