@@ -114,7 +114,7 @@ function AuthDashboardContainer(props) {
   const [tab, SetDefaultTab] = useState("location");
 
   var location = "kampala"
-  var service = "Car wiring"
+  var service = "wiring"
 
   
   const dashboard = (e) => {

@@ -49,7 +49,7 @@ export const getresults = (service, Location) => dispatch => {
 	    service,
 	    Location
 	  });
-  	 // console.log(body)
+  	 console.log(body)
 
 	axios                                                              
 	.post('https://meetmech-api.herokuapp.com/api/v1/user_request/', body, config)  // API endpoint  
