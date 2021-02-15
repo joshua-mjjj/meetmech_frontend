@@ -21,8 +21,11 @@ import Typography        from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AuthorizedUserNavbar from "../components/AuthorizedUserNavbar";
 import ListIcon                 from '@material-ui/icons/List';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 import { get_profiles } from "../actions/auth.js";
+import { set_tab }      from '../actions/results';
+
 import Avatar                   from '@material-ui/core/Avatar';
 import FindInPageIcon           from '@material-ui/icons/FindInPage';
 
@@ -108,6 +111,11 @@ function AuthDashboardContainer(props) {
   const [go_to_dash, setGo_to_dash] = useState(true);
   const [go_to_create, setGo_to_create] = useState(false);
 
+  const [tab, SetDefaultTab] = useState("location");
+
+  var location = "kampala"
+  var service = "Car wiring"
+
   
   const dashboard = (e) => {
     setGo_to_dash(true);
@@ -118,6 +126,11 @@ function AuthDashboardContainer(props) {
     setGo_to_dash(false);
     setGo_to_create(true);
   };
+
+  const set_tab = (e) => {
+    props.set_tab(tab);
+  }
+
   const drawer = (
     <div>
       <Divider />
@@ -139,12 +152,14 @@ function AuthDashboardContainer(props) {
           <ListItemText primary="Create Profile" className={classes.sidebarLabel}/>
         </ListItem>
          <Divider />
-        <ListItem button>
-          <ListItemIcon>
-            <EventIcon />
-          </ListItemIcon>
-          <ListItemText primary="car parts" className={classes.sidebarLabel}/>
-        </ListItem>
+           <Link to={{ pathname: `/search`, search: `?q=${service}`, state: { service: `${service}`, location: `${location}` } }} style={{ 'textDecoration': 'none', 'color': 'grey'}}>
+            <ListItem onClick={set_tab} button>
+            <ListItemIcon>
+              <LocationOnIcon />
+            </ListItemIcon>
+            <ListItemText primary="Our Regions" className={classes.sidebarLabel}/>
+          </ListItem>
+        </Link>
         <Divider />
         
       </List>
@@ -256,4 +271,4 @@ const mapStateToProps = (state) => ({
   profiles :state.auth.profiles,
 });
 
-export default connect(mapStateToProps, { get_profiles })(AuthDashboardContainer);
+export default connect(mapStateToProps, { get_profiles, set_tab })(AuthDashboardContainer);

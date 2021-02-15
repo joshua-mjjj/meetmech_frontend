@@ -116,7 +116,7 @@ export default function CustomizedInputBase(props) {
                     <ListItemText name='kayinga'  primary="Kayinga" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
                   </ListItem>
                    <ListItem button >
-                    <ListItemText  name='katwe' primary="Katwe" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
+                    <ListItemText  name='Kiboga' primary="Kiboga" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
                   </ListItem>
                   <ListItem button >
                     <ListItemText  name='kakiri' primary="Kakiri" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
@@ -131,7 +131,25 @@ export default function CustomizedInputBase(props) {
                     <ListItemText  name='Munyonyo' primary="Munyonyo" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
                   </ListItem>
                     <ListItem button >
-                    <ListItemText  name='Wandegeya' primary="Wandegeya" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
+                    <ListItemText  name='Mityana' primary="Mityana" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
+                  </ListItem>
+                   <ListItem button >
+                    <ListItemText  name='Lugazi' primary="Lugazi" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
+                  </ListItem>
+                   <ListItem button >
+                    <ListItemText  name='Kamuli' primary="Kamuli" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
+                  </ListItem>
+                   <ListItem button >
+                    <ListItemText  name='Iganga' primary="Iganga" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
+                  </ListItem>
+                   <ListItem button >
+                    <ListItemText  name='Kitgum' primary="Kitgum" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
+                  </ListItem>
+                   <ListItem button >
+                    <ListItemText  name='Mbarara' primary="Mbarara" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
+                  </ListItem>
+                   <ListItem button >
+                    <ListItemText  name='Gulu' primary="Gulu" onClick={event => setLocation(event.currentTarget.getAttribute('name'))}  />
                   </ListItem>
                 </List>
              </div>

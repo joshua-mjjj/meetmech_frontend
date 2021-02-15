@@ -21,6 +21,7 @@ import AuthorizedUserHomepageNavbar from "../components/AuthorizedUserHomepageNa
 import Link  from '@material-ui/core/Link';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import Popper from '@material-ui/core/Popper';
+import Spinner from "../components/Spinner_results";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -172,6 +173,40 @@ function ResultsPage(props) {
 	)
   } 
 
+    if(props.spinner === true){
+			return (
+		   <Fragment>
+			<div>
+	          	{
+	           	props.auth.isAuthenticated ? 
+	           	( <AuthorizedUserHomepageNavbar />) 
+	           	 :
+	           	('')
+	           }
+	          </div>
+	           <div>
+	          	{
+	           	!(props.auth.token) ? 
+	           	(  <GuestNavBar />) 
+	           	 :
+	           	('')
+	           }
+	          </div>
+			<Container className="container"  disableGutters="true">
+				<Paper className="search-section" elevation={0}>
+					<ImageAvatars />
+					<CustomizedInputBase 
+						search={props.location.state.service} 
+						auto_complete={props.autocompletes}
+					/>
+					<CustomizedTabs  />
+				</Paper>
+				 <Spinner  />
+	      </Container>
+		</Fragment>
+	)
+  } 
+
 	  return (
 		<Fragment>
 			<div>
@@ -219,7 +254,7 @@ const mapStateToProps = state => ({
 	results_null: state.results.results_null,
 	// query: state.results.query,
 	autocompletes: state.results.autocompletes,
-	// errors: state.errors
+	spinner: state.results.spinner
 });
 
 export default connect(mapStateToProps, { getsuggestions, getresults } )(ResultsPage);

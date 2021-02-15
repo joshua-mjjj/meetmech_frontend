@@ -1,5 +1,5 @@
 import axios from "axios";
-import {  GET_SUGGESTIONS, RESULTS_FETCHED, RESULTS_NULL, GET_DETAILS, SET_TAB  } from "./types";
+import {  GET_SUGGESTIONS, RESULTS_FETCHED, RESULTS_NULL, GET_DETAILS, SET_TAB, SPINNER  } from "./types";
 
 // SET TAB 
 export const set_tab = (tab) => dispatch => {
@@ -33,6 +33,9 @@ export const getsuggestions = () => dispatch => {
 
 // GET SEARCH ENGINE RESULTS
 export const getresults = (service, Location) => dispatch => {
+	// Spinner Loading...
+    dispatch({ type: SPINNER });
+
 	console.log("getting results...")
      // Headers
 	  const config = {

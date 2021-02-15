@@ -3,7 +3,8 @@ import {
   RESULTS_FETCHED,
   RESULTS_NULL,
   GET_DETAILS,
-  SET_TAB
+  SET_TAB,
+  SPINNER
 
  } from "../actions/types";
 
@@ -12,7 +13,8 @@ const initialState = {
 	results: [],
 	results_null: false,
 	details: [],
-	tab: "all"
+	tab: "all",
+	spinner: false
 }
 
 export default function(state=initialState, action) {
@@ -21,6 +23,11 @@ export default function(state=initialState, action) {
 			return {
 				...state,
 				autocompletes: action.payload
+			}
+		case SPINNER:
+			return {
+				...state,
+				spinner: true
 			}
 		case SET_TAB:
 			return {
@@ -40,7 +47,8 @@ export default function(state=initialState, action) {
 		case RESULTS_FETCHED:
 			return {
 				...state,
-				results: action.payload
+				results: action.payload,
+				spinner: false
 			}
 		default: 
 			return state;
