@@ -332,10 +332,12 @@ function BioSection(props) {
                           }}
                           >
                           <MenuItem value="wiring">Car wiring</MenuItem>
-                          <MenuItem value="tyres">Wheel Alignment</MenuItem>
-                          <MenuItem value="electric">Electric Cars</MenuItem>
-                          <MenuItem value="engine">Engine Checking</MenuItem>
-                          <MenuItem value="balancing">Wheel Balancing</MenuItem>
+                          <MenuItem value="alignment">Wheel Alignment</MenuItem>
+                          <MenuItem value="electrics">Electric Cars</MenuItem>
+                          <MenuItem value="engines">Engine Checking</MenuItem>
+                          <MenuItem value="wheel_balancing">Wheel Balancing</MenuItem>
+                          <MenuItem value="flat_tyres">Flat Tyres</MenuItem>
+                          <MenuItem value="computer_aided_mechanics">Computer Aided Mechanics</MenuItem>
                       </Select> 
                     </Grid>
                      <Grid item xs={12} sm={6}>
@@ -354,8 +356,18 @@ function BioSection(props) {
                           >
                           <MenuItem value="kampala">Kampala</MenuItem>
                           <MenuItem value="kayinga">Kayinga</MenuItem>
-                          <MenuItem value="katwe">Katwe</MenuItem>
+                          <MenuItem value="Entebbe">Entebbe</MenuItem>
                           <MenuItem value="kakiri">Kakiri</MenuItem>
+                          <MenuItem value="Nsambya">Nsambya</MenuItem>
+                          <MenuItem value="Munyonyo">Munyonyo</MenuItem>
+                          <MenuItem value="Kiboga">Kiboga</MenuItem>
+                          <MenuItem value="Mityana">Mityana</MenuItem>
+                          <MenuItem value="Lugazi">Lugazi</MenuItem>
+                          <MenuItem value="Kamuli">Kamuli</MenuItem>
+                          <MenuItem value="Iganga">Iganga</MenuItem>
+                          <MenuItem value="Kitgum">Kitgum</MenuItem>
+                          <MenuItem value="Mbarara">Mbarara</MenuItem>
+                          <MenuItem value="Gulu">Gulu</MenuItem>
                       </Select>  
                     </Grid>
                     <Grid item xs={12} sm={6}>
