@@ -38,7 +38,7 @@ This is a simple documentation to get you started with using Meetmech platform
 
  - Joshua MJ => Lead Developer   (System Architect)
  - James    MJ   =>     Developer UX designer 
- - Enock    AHE  =>     Developer UI designer
+ - Enoch    AHE  =>     Developer UI designer
  - Francis  OF   =>     Developer 
  - Ben      MB   =>     Developer 
 <br />
